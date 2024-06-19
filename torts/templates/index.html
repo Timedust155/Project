@@ -1,0 +1,93 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static '/css/style.css'%}"><title>Document</title>
+</head>
+<body>
+    <div class="header">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <section class="top-nav">
+    <div class="logo">
+             <img src="{% static '/img/logo.svg'%}" alt="">
+                </div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+    <div class='menu-button'></div>
+  </label>
+    <ul class="menu">
+        <li><a href="{%url 'index'%}">Главная</a></li>
+        <li><a href="">Акции</a></li>
+        <li><a href="">Отзывы</a></li>
+        <li><p id="openModal">Контакты</p></li>
+    </ul>
+      <div class="containerr">
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Контакты кондитерского магазина</h2>
+      <p>Телефон: 8 (800) 123-45-67</p>
+      <p>Email: info@bakery.com</p>
+    </div>
+  </div>
+</div>
+<div class="zakaz">
+            <a class="button_zakaz" href="#pf">Заказать торт</a>
+        </div>
+  </section>
+</div>
+    <div class="tort">
+        <div class="zagal"><h2>Печем сладкие мечты более 11 лет</h2>
+        <h1>Выберите один из готовых тортов или закажите уникальный, который будет <br> соответствовать всем вашим пожеланиям</h1></div>
+       <a class="button_zakaz2" href="#pf" >Заказать лучший торт</a>
+
+  </div>
+    <div class="basic"><div class="fone" id="pf">
+        <div class="row">
+
+    {%for i in kateg%}
+          <div class="col-md-auto"><div class="container">
+            <div class="wrapper">
+              <div class="banner-image"> <img  src="{{i.photo.url}}" alt=""> </div>
+              <h1> {{i.name}}
+              </h1>
+          
+             </div>
+             <div class="button-wrapper"> 
+     
+               <a class="btn fill"href="{%url 'torts' i.id%}">Подробнее</a>
+             </div>
+               </div>
+           </div>    {%endfor%}
+            
+          </div>
+    </div></div>
+
+
+    <div class="sweets">
+    <div class="lavri">
+        <img src="{% static 'img/Group5.svg'%}" alt="" class="cl">
+        <img src="{% static 'img/Group7.png'%}"  alt=""class="cl2">
+    </div>
+    </div><div class="karta"><script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A71eb1a1514f06efc7665fef237d1e7b0cd8c9c837097cdd2fb5845135cb50b90&amp;width=100%25&amp;height=465&amp;lang=ru_RU&amp;scroll=true"></script>
+   
+    </div>
+     <div class="footer">
+       <div class=logo_footer><img src="{% static 'img/unnamed.png'%}" alt=""></div>
+        <div class="links">      <ul>
+            <li><a href="">Главная</a></li>
+            <li><a href="">Акции</a></li>
+            <li><a href="">Отзывы</a></li>
+           <li><p id="openModal2">Контакты</p></li>
+        </ul></div>
+    </div>
+
+    <script src="{% static 'js/script.js'%}"></script>
+
+</body>
+</html>

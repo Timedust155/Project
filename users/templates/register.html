@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="content-section">
+        <form class="form_register" method="POST">
+        {% csrf_token %}
+            <legend class="mb-4 fw-bold">Регистрация</legend>
+            <label class="label_reg" for="username"><p>Введите имя пользователя</p>
+                <input id="username" type="text" name="username" placeholder="" required>
+            </label>
+            <label class="label_reg" for="email"><p>Введите адрес электронной почты</p>
+                <input id="email" type="email" name="email" placeholder="" required>
+            </label>
+            <label class="label_reg" for="password1"><p>Введите пароль</p>
+                <input id="password1" type="password" name="password1" placeholder="" required>
+            </label>
+            <label class="label_reg" for="password2"><p>Подтвердите пароль</p>
+                <input id="password2" type="password" name="password2" placeholder="" required>
+            </label>
+            <button id="submit_reg" class="submit_reg_btn btn btn-dark" type="submit" name="submit_reg">Зарегистрироваться</button>
+        </form>
+        <div class="border-top pt-3" id="have_account">
+            <small class="text-muted">
+                Уже есть аккаунт? <a class="ml-2" href="{% url 'login' %}">Вход</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
+</body>
+</html>

@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static '/css/style.css'%}"><title>Document</title>
+</head>
+<body>
+      <div class="header">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <section class="top-nav">
+    <div class="logo">
+             <img src="{% static '/img/logo.svg'%}" alt="">
+                </div>
+    <input id="menu-toggle" type="checkbox" />
+    <label class='menu-button-container' for="menu-toggle">
+    <div class='menu-button'></div>
+  </label>
+
+    <ul class="menu">
+        <li><a href="{%url 'index'%}">Главная</a></li>
+        <li><a href="">Акции</a></li>
+        <li><p id=>О нас</p></li>
+        <li><p id="openModal">Контакты</p></li>
+    </ul>
+            <div class="containerr">
+                <div id="modal2" class="modal2">
+<!--  <div class="modal2-content">-->
+<!--    <span class="close2">&times;</span>-->
+<!--    <h2>О нас</h2>-->
+<!--    <p>Мы - интернет-магазин тортов, предлагаем Вам лучшие десерты для любого случая.</p>-->
+<!--      <p>Находимся по адресу:</p>-->
+<!--  </div>-->
+</div>
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Контакты кондитерского магазина</h2>
+      <p>Телефон: 8 (800) 123-45-67</p>
+      <p>Email: info@bakery.com</p>
+    </div>
+  </div>
+</div>
+
+<div class="zakaz">
+        <div class="button_zakaz">
+            <a href="">Заказать торт</a>
+
+        </div></div>
+  </section>
+</div>
+<div class="containerr">
+
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Контакты кондитерского магазина</h2>
+      <p>Телефон: 8 (800) 123-45-67</p>
+      <p>Email: info@bakery.com</p>
+    </div>
+  </div>
+</div>
+    <div class="center">
+        <div class="tort_center">
+
+
+
+            <div class="tort_img"><img src="{{cake.photo.url}}"alt=""></div>
+
+            <div class="description">
+                <div class="price">
+                <h1>{{cake.name}}</h1>
+                <h3>{{cake.price}} p.</h3>
+                <p>Вес</p>
+                <div class="weght"><p>2000г</p></div>
+                   <button class="_button_zakaz"id="openModalButton3"><p >Заказать торт</p></button>
+            </div>
+                <h1>{{cake.description}}</h1>
+
+  </div>
+    </div>
+
+    </div>
+    <div class="footer">
+       <div class=logo_footer><img src="{% static 'img/unnamed.png'%}" alt=""></div>
+        <div class="links">      <ul>
+            <li><a href="">Главная</a></li>
+            <li><a href="">Акции</a></li>
+         <li><p id="openModal22">О нас</p></li>
+          <li><p id="openModal2">Контакты</p></li>
+        </ul></div>
+    </div>
+
+
+
+</body>
+
+<div id="modal3">
+  <div class="modal-content3"> <span class="close-button" onclick="modal.style.display = 'none'">&times;</span>
+<form class="form_factori" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="_button_zakaz"><p >Заказать торт</p></button>
+
+</form>
+
+
+  </div>
+</div><script src="{% static 'js/script.js'%}"></script>
+</html>

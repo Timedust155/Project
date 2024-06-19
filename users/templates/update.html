@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="form_factori" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="_button_zakaz"><p >Заказать торт</p></button>
+
+</form>
+</body>
+</html>
